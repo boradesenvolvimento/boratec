@@ -17,16 +17,20 @@ def get_secret(setting, secrets=secrets):
     except KeyError:
         raise ImproperlyConfigured(f"Set the {setting} setting")
     
+
+
 def conndb():
     try:
-        connection = oracledb.connect(user='CONSULTA142', password='BORA241', dsn=cx_Oracle.makedsn('152.67.34.112', '1521', None, 'orapdb1.subnetprax02.vcnpraxioocisp0.oraclevcn.com'))
-        print('Connection successful')
-        #conn = cx_Oracle.connect('CONSULTA142','BORA241', cx_Oracle.makedsn('152.67.34.112', '1521', None, 'orapdb1.subnetprax02.vcnpraxioocisp0.oraclevcn.com'))
+        oracledb.init_oracle_client()
+        cp = oracledb.ConnectParams()
+        cp.parse_connect_string("152.67.34.112:1521/orapdb1.subnetprax02.vcnpraxioocisp0.oraclevcn.com")
+        connection = oracledb.connect(user="CONSULTA142", password="BORA241", params=cp)
     except Exception as e:
         print(e)
         raise e
     else:
         return connection
+
     
 def dictfetchall(cursor):
     #Return all rows from a cursor as a dict

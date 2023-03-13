@@ -1,0 +1,12 @@
+<div style="text-align:center">
+    <h1>
+        Compras
+    </h1>
+</div>
+<input #request_id type="text" placeholder="Código da solicitação">
+<input #company type="text" placeholder="Empresa">
+<input #branch type="text" placeholder="Filial">
+
+<button (click)="importPurchase(request_id.value, company.value, branch.value)">Importar</button>
+<p>{{ error?.message }}</p>
+<p *ngIf="error">{{ error?.error | json }}</p>

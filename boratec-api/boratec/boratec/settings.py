@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'user',
     'adm_tools',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -51,7 +52,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'boratec.urls'
 
@@ -68,11 +72,12 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
+    "JWT_ALLOW_REFRESH": True,
     "ACCESS_TOKEN_LIFETIME": timedelta(hours=2),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=3),
     "SIGNING_KEY": SECRET_KEY,
-    "AUTH_HEADER_TYPES": ("Bearer",),
-    # "Bearer <Token>"
+    "AUTH_HEADER_TYPES": ("JWT",),
+    # "Authorization: JWT <Token>"
 }
 
 TEMPLATES = [
