@@ -1,0 +1,83 @@
+.purchase-box{
+    display: flex;
+    flex-direction: column;
+    .title{
+        font-family: Poppins-Bold;
+        font-size: 28px;
+        margin-top: 2rem;
+        color: var(--text-secondary);
+        line-height: 1.2;
+        text-align: center;
+        width: 100%;
+        display: block;
+        padding-bottom: 54px;
+        font-weight: 700;
+    }
+    .import-box{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        .import-form{
+            padding: .6rem 5rem;
+            display: block;
+            background-color: #fff;
+            box-sizing: border-box;
+            border-radius: 20px;
+            box-shadow: 0 5px 10px rgba(0,0,0,.6);
+
+
+            .import-inputs{
+                display: flex;
+                margin-left: auto;
+                justify-content: center;
+                
+                input{
+                    font-family: Poppins-Medium;
+                    font-size: 15px;
+                    line-height: .4;
+                    color: #666;
+                    display: block;
+                    width: 100%;
+                    background: #e6e6e6;
+                    height: 30px;
+                    border-radius: 5px;
+                    padding: 0 10px;
+                }
+                .input-box-mini{
+                    margin-left: 10px;
+                    width: 5rem;
+
+                }
+                .input-box-max {
+                    margin-left: 10px;
+                    width: 20rem;
+                }
+            }
+
+            .submit-btn{
+
+
+                font-family: Montserrat-Bold;
+                font-size: 15px;
+                line-height: 1.5;
+                color: #fff;
+                text-transform: uppercase;
+                width: 30%;
+                height: 30px;
+                border-radius: 5px;
+                background: #6fc260;
+                display: flex;
+                justify-content: center;
+                margin-left: auto;
+                margin-top: 20px;
+                align-items: center;
+                padding: 0 25px;
+                -webkit-transition: all .4s;
+                -o-transition: all .4s;
+                -moz-transition: all .4s;
+                transition: all .4s;
+            }
+        }
+    }
+}

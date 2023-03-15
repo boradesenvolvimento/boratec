@@ -1,1 +1,66 @@
-/* You can add global styles to this file, and also import other style files */
+/* Internal imports */
+@import 'app/components/atoms/statements.scss';
+
+/* External imports */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap'); //Roboto Font
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #dddddd;
+    overflow-y: hidden;
+}
+input {
+    outline: none;
+    border: none;
+}
+button {
+    -webkit-appearance: auto;
+    appearance: auto;
+    writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    margin: 0em;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+}
+
+ @media only screen and (min-width: 600px) {
+     nav {
+         display: flex;
+         justify-content: center;
+     }
+
+     nav a {
+         margin: 0 10px;
+     }
+
+     section {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+     }
+     
+     section article {
+         flex-basis: 30%;
+         margin: 10px;
+     }
+ }

@@ -29,7 +29,7 @@ class PurchaseRequest(models.Model):
     paid = models.BooleanField(null=True, blank=True, default=False)
 
     def __str__(self):
-        return self.request_ids
+        return self.request_id
     
 class ProductRequest(models.Model):
     id = models.BigAutoField(primary_key=True)

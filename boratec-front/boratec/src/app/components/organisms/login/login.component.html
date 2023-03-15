@@ -1,11 +1,28 @@
-<div style="text-align:center">
-    <h1>
-        Login
-    </h1>
-</div>
 
-<input #username type='text' placeholder='username'>
-<input #password type='password' placeholder='password'>
-<button (click)="login(username.value, password.value)">login</button>
-<p>{{ error?.message }}</p>
-<p *ngIf="error">{{ error?.error | json }}</p>
+<div class="login-page">
+    <div class="login-form">
+        <span class="login-title">Entrar</span>
+        <div class="input-form">
+            <input class="input-box" #username type='text' name="email" placeholder="Email">
+            <span class="input-focus"></span>
+            <span class="input-symbol">
+                <fa-icon [icon]="emailIcon"></fa-icon>
+            </span>
+        </div>
+        <div class="input-form">
+            <input class="input-box" #password type='password' name="pass" placeholder='password'>
+            <span class="input-focus"></span>
+            <span class="input-symbol">
+                <fa-icon [icon]="emailIcon"></fa-icon>
+            </span>
+        </div>
+        <div class="submit-box">
+            <button class="submit-btn" (click)="login(username.value, password.value)">login</button>
+        </div>
+        <div class="help">
+            <small class="forgot"><a>Esqueceu a senha?</a></small>
+        </div>
+        <p>{{ error?.message }}</p>
+        <p *ngIf="error">{{ error?.error | json }}</p>
+    </div>
+</div>

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service'; 
 
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,8 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit{
+  emailIcon = faEnvelope;
+
   error: any;
 
   constructor(

@@ -1,12 +1,63 @@
-<div style="text-align:center">
-    <h1>
-        Compras
-    </h1>
-</div>
-<input #request_id type="text" placeholder="Código da solicitação">
-<input #company type="text" placeholder="Empresa">
-<input #branch type="text" placeholder="Filial">
+<div class="purchase-box">
+    <div class="title">Painel de Compras</div>
+    <div class="import-box">
+        <div class="import-form">
+            <form action="">
+                <span class="import-inputs">
+                    <div class="input-box-mini">
+                        <label for="company">Empresa</label>
+                        <input class="input-mini" #company type="text">
+                    </div>
+                    <div class="input-box-mini">
+                        <label for="branch">Filial</label>
+                        <input class="input-mini" #branch type="text">
+                    </div>
+                    <div class="input-box-max">
+                        <label for="request_id">Código da solicitação</label>
+                        <input class="input-max" #request_id type="number">
+                    </div>
+                </span>
+                <div style="width: 100%;">
+                    <button class="submit-btn" (click)="importPurchase(request_id.value, company.value, branch.value)">Importar</button>
+                </div>
+            </form>
+        </div>
 
-<button (click)="importPurchase(request_id.value, company.value, branch.value)">Importar</button>
-<p>{{ error?.message }}</p>
-<p *ngIf="error">{{ error?.error | json }}</p>
+    </div>
+    <div [hidden]="!showlist">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+            <thead>
+                <tr>
+                    <th>Nº Solicitação</th>
+                    <th>Dt Solicitação</th>
+                    <th>Dt Lançamento</th>
+                    <th>Status</th>
+                    <th>Empresa</th>
+                    <th>Filial</th>
+                    <th>Solicitante</th>
+                    <th>Responsável</th>
+                    <th>Itens Cad.</th>
+                    <th>Editar</th>                
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of purchases">
+                    <td> {{ p.request_id }} </td>
+                    <td> {{ p.date }} </td>
+                    <td> {{ p.pub_date | date }} </td>
+                    <td> {{ p.status }} </td>
+                    <td> {{ p.company | extractCompany:p.branch:'C' }} </td>
+                    <td> {{ p.branch }} </td>
+                    <td> {{ p.requester }} </td>
+                    <td> {{ p.responsible }} </td>
+                    <td> Waiting </td>
+                    <td> Waiting </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p>{{ error?.message }}</p>
+    <p *ngIf="error">{{ error?.error | json }}</p>
+</div>
+

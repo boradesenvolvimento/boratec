@@ -20,4 +20,10 @@ export class AdminToolsService {
       }
     )
   }
+
+  fetchPurchasesRequest(){
+    return this.http.get(
+      this.apiRoot.concat('purchase_request/')
+    )
+  }
 }

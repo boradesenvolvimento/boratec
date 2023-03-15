@@ -14,7 +14,7 @@ from cx_Oracle import DatabaseError as cxerr
 
 # Create your views here.
 
-class PurchaseRequest(APIView):
+class PurchaseRequestView(APIView):
     permission_classes = [IsAuthenticated]
     serializer_class = PurchaseRequestSerializer
 
@@ -164,7 +164,9 @@ class PurchaseRequest(APIView):
         return Response(data=response, status=status.HTTP_200_OK)
     
     def get(self, request: Request):
-    
-        purchases = PurchaseRequest.objects.all()
 
-        return Response(data=purchases, status=status.HTTP_200_OK)
+        purchases = PurchaseRequest.objects.all()
+        serializer = PurchaseRequestSerializer(purchases, many=True)
+
+
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
