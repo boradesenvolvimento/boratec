@@ -12,6 +12,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { DataTablesModule } from 'angular-datatables';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
+
+
 
 import { AuthService, AuthInterceptor, AuthGuard } from './services/auth.service';
 import { PurchaseRequestComponent } from './components/organisms/purchase-request/purchase-request.component';
@@ -32,9 +35,11 @@ import { AccountComponent } from './components/organisms/account/account.compone
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     HttpClientModule,
     CdkMenuModule,
+    
     OverlayModule,
     FontAwesomeModule,
     DataTablesModule,
