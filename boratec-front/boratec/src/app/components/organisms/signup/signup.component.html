@@ -1,1 +1,50 @@
-<p>signup works!</p>
+
+<div class="login-page">
+    <div class="login-form">
+        <span class="login-title">Cadastrar</span>
+        <div class="input-column">
+            <div class="row">
+                <div class="input-form">
+                    <input class="input-box" #name type='text' name="name" placeholder="Nome">
+                    <span class="input-focus"></span>
+                    <span class="input-symbol">
+                        <fa-icon [icon]="userIcon"></fa-icon>
+                    </span>
+                </div>
+                <div class="input-form">
+                    <input class="input-box" #email type='email' name="email" placeholder="Email">
+                    <span class="input-focus"></span>
+                    <span class="input-symbol">
+                        <fa-icon [icon]="emailIcon"></fa-icon>
+                    </span>
+                </div>
+                <div class="input-form">
+                    <input class="input-box" #phone type='text' name="phone" placeholder="Telefone">
+                    <span class="input-focus"></span>
+                    <span class="input-symbol">
+                        <fa-icon [icon]="emailIcon"></fa-icon>
+                    </span>
+                </div>
+            </div>
+            <div class="dualcol">
+                <div class="input-form mid">
+                    <input class="input-box" #password type='password' name="password" placeholder='Senha'>
+                    <span class="input-focus"></span>
+                    <span class="input-symbol">
+                        <fa-icon [icon]="passwordIcon"></fa-icon>
+                    </span>
+                </div>
+                <div class="input-form mid">
+                    <input class="input-box" #confirm_password type='password' name="confirm_password" placeholder='Confirmar a Senha'>
+                    <span class="input-focus"></span>
+                    <span class="input-symbol">
+                        <fa-icon [icon]="passwordIcon"></fa-icon>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="submit-box">
+            <button class="submit-btn" (click)="signup(name.value, email.value, phone.value, password.value, confirm_password.value)">Criar conta</button>
+        </div>
+    </div>
+</div>

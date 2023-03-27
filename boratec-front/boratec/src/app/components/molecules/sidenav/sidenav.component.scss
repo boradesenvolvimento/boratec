@@ -66,18 +66,21 @@
     .sidenav-nav-item {
         width: 100%;
         margin-bottom: 0.625rem;
-        margin-left: 1.2rem;
 
         .sidenav-nav-link {
+            
             display: flex;
+            justify-content: center;
             align-items: center;
             height: 3rem;
             color: #f3f3f3;
             text-decoration: none;
             border-radius: 0.625rem;
             transition: all .3s ease;
-
+            
             .sidenav-link-icon {
+                margin-left: 1.2rem;
+
                 //font-size: 39px;
                 width: 2rem;
                 min-width: 2rem;

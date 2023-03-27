@@ -24,8 +24,8 @@
         </div>
 
     </div>
-    <div [hidden]="!showlist">
-        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+    <div [hidden]="!showlist" style="display: flex; justify-content: center; flex-direction: column; width: 80%; margin: 0 auto;">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover"  style="width: 100%;">
             <thead>
                 <tr>
                     <th>Nº Solicitação</th>
@@ -42,21 +42,22 @@
             </thead>
             <tbody>
                 <tr *ngFor="let p of purchases">
-                    <td> {{ p.request_id }} </td>
-                    <td> {{ p.date }} </td>
-                    <td> {{ p.pub_date | date }} </td>
-                    <td> {{ p.status }} </td>
-                    <td> {{ p.company | extractCompany:p.branch:'C' }} </td>
-                    <td> {{ p.branch }} </td>
-                    <td> {{ p.requester }} </td>
-                    <td> {{ p.responsible }} </td>
-                    <td> Waiting </td>
-                    <td> Waiting </td>
+                    <td style="text-align: center;"> {{ p.request_id }} </td>
+                    <td style="text-align: center;"> {{ p.date }} </td>
+                    <td style="text-align: center;"> {{ p.pub_date | date }} </td>
+                    <td style="text-align: center;"> {{ p.status }} </td>
+                    <td style="text-align: center;"> {{ p.company | extractCompany:p.branch:'C' }} </td>
+                    <td style="text-align: center;"> {{ p.branch }} </td>
+                    <td style="text-align: center;"> {{ p.requester }} </td>
+                    <td style="text-align: center;"> {{ p.responsible }} </td>
+                    <td style="text-align: center;"> Waiting </td>
+                    <td style="text-align: center;"> Waiting </td>
                 </tr>
             </tbody>
         </table>
     </div>
-
+</div>
+<div class="error-box">
     <p>{{ error?.message }}</p>
     <p *ngIf="error">{{ error?.error | json }}</p>
 </div>

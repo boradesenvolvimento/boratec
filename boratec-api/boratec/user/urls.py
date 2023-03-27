@@ -10,6 +10,7 @@ from . import views
 urlpatterns = [
     path("signup/", views.SignUpView.as_view(), name="signup"),
     path("login/", views.LoginView.as_view(), name="login"),
+    path("edit_user/<int:id>/", views.SignUpView.as_view(), name="edit_view"),
     path("jwt/create/", TokenObtainPairView.as_view(), name="jwt_create"),
     path("jwt/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
     path("jwt/verify/", TokenVerifyView.as_view(), name="token_verify"),

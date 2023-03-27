@@ -10,13 +10,15 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { DataTablesModule } from 'angular-datatables';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AuthService, AuthInterceptor, AuthGuard } from './services/auth.service';
 import { PurchaseRequestComponent } from './components/organisms/purchase-request/purchase-request.component';
 import { LoginComponent } from './components/organisms/login/login.component';
 import { SidenavComponent } from './components/molecules/sidenav/sidenav.component';
 import { ExtractCompanyPipe } from './components/atoms/extract-company.pipe';
+import { AccountComponent } from './components/organisms/account/account.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { ExtractCompanyPipe } from './components/atoms/extract-company.pipe';
     LoginComponent,
     SidenavComponent,
     ExtractCompanyPipe,
+    AccountComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,13 @@ import { ExtractCompanyPipe } from './components/atoms/extract-company.pipe';
     CdkMenuModule,
     OverlayModule,
     FontAwesomeModule,
-    DataTablesModule
+    DataTablesModule,
+    BrowserAnimationsModule,
+
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      easeTime: 600
+    }),
   ],
   providers: [
     AuthService,

@@ -19,9 +19,7 @@ export class AuthService {
 
   private setSession(authResult) {
     if (authResult.error) {
-      var error_msg = 'Email ou senha inválido'
-      console.log(error_msg)
-      return error_msg
+      throw new Error('Email ou senha inválido')
     }
     const token = authResult;
     const payload = <JWTPayload> jwtDecode(token.access);
@@ -51,9 +49,30 @@ export class AuthService {
       shareReplay(),
     );
   }
+  get_user(){
+    return this.http.get(
+      this.apiRoot.concat('login/')
+    ).pipe(
+      tap(response => console.log(response))
+    )
+  }
 
-  signup(username: string, email: string, password1: string, password2: string) {
+  signup(email: string, password: string, admission: string, first_name: string, last_name: string, phone: string) {
     // TODO: implement signup
+
+    return this.http.post(
+      this.apiRoot.concat('signup/'),
+      {
+        'email': email,
+        'password': password,
+        'admission': admission,
+        'first_name': first_name,
+        'last_name': last_name,
+        'phone': phone
+      }
+    ).pipe(
+      tap(response => console.log(response))
+    )
   }
 
   logout() {

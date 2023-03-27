@@ -7,10 +7,39 @@
         </button>
     </div>
     <ul class="sidenav-nav">
+        <!-- USER PAGE -->
+        <div style="border-bottom: 1px solid white; width: 100%; margin-bottom: 10px;">
+            <li class="sidenav-nav-item" *ngIf="!is_logged">
+                <a class="sidenav-nav-link" [routerLink]="['login']">
+                    <div class="icon-box">
+                        <fa-icon [icon]="user_icon" size="lg"></fa-icon>
+                        <span class="sidenav-link-text" *ngIf="collapsed"> Entrar </span>
+                    </div>
+                </a>
+            </li>
+            <li class="sidenav-nav-item" *ngIf="!is_logged">
+                <a class="sidenav-nav-link" [routerLink]="['signup']">
+                    <div class="icon-box">
+                        <fa-icon [icon]="user_register" size="lg"></fa-icon>
+                        <span class="sidenav-link-text" *ngIf="collapsed"> Cadastrar </span>
+                    </div>
+                </a>
+            </li>
+            <li class="sidenav-nav-item" *ngIf="is_logged">
+                <a class="sidenav-nav-link" [routerLink]="['account']">
+                    <div class="icon-box">
+                        <fa-icon [icon]="user_settings" size="lg"></fa-icon>
+                        <span class="sidenav-link-text" *ngIf="collapsed"> Conta </span>
+                    </div>
+                </a>
+            </li>
+        </div>
         <li class="sidenav-nav-item" *ngFor="let data of navPages">
             <a class="sidenav-nav-link" [routerLink]="[data.routeLink]">
-                <fa-icon [icon]="data.icon" size="lg"></fa-icon>
-                <span class="sidenav-link-text" *ngIf="collapsed"> {{ data.label }} </span>
+                <div class="icon-box">
+                    <fa-icon [icon]="data.icon" size="lg"></fa-icon>
+                    <span class="sidenav-link-text" *ngIf="collapsed"> {{ data.label }} </span>
+                </div>
             </a>
         </li>
     </ul>

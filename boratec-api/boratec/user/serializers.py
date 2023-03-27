@@ -37,3 +37,14 @@ class SignUpSerializer(serializers.ModelSerializer):
         Token.objects.create(user=user)
 
         return user
+    
+    def update(self, user, validated_data):
+        user.password = validated_data.get('password', user.password)
+        user.phone = validated_data.get('phone', user.phone)
+        user.first_name = validated_data.get('first_name', user.first_name)
+        user.last_name = validated_data.get('last_name', user.last_name)
+
+        user.save()
+
+        return user
+    
